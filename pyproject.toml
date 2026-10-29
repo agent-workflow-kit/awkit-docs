@@ -3,7 +3,7 @@
 
 [project]
 name = "awkit-docs"
-version = "0.0.0"
+version = "0.0.1"
 description = "System-level design documents for agent-workflow-kit: architecture, design guide, interface registry and roadmap."
 license = "MIT"
 
