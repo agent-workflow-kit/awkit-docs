@@ -32,6 +32,8 @@ Architecture, conventions, roadmap and interface registry for `awkit` ("agent wo
 
 One repo per tool, named exactly as the tool, plus `awkit` (the harness) and `awkit-docs` (this repo). All repos are public in the [`agent-workflow-kit`](https://github.com/agent-workflow-kit) GitHub organization; install a tool with `uv tool install git+https://github.com/agent-workflow-kit/<repo>`. Tools carry no shared prefix (design guide section 1).
 
+Browse every repository on the [organization page](https://github.com/agent-workflow-kit).
+
 | Repo | Layer | Purpose |
 |---|---|---|
 | forgectl | L1 | Normalized access to pull/merge requests across GitHub and GitLab. |
