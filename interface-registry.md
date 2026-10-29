@@ -11,7 +11,7 @@ Each tool, its current version, a link to its interface spec and its known consu
 | ticketctl | L1 | 0.0.0 | [../ticketctl/docs/interface.md](../ticketctl/docs/interface.md) | ticket-queue, ticket-create, ticket-work | pre-design |
 | wtctl | L1 | 0.0.0 | [../wtctl/docs/interface.md](../wtctl/docs/interface.md) | agent-spawn, review-run, ticket-work | pre-design |
 | termctl | L1 | 0.0.0 | [../termctl/docs/interface.md](../termctl/docs/interface.md) | agent-spawn | pre-design |
-| claude-session | L1 | 0.0.0 | [../claude-session/docs/interface.md](../claude-session/docs/interface.md) | gatectl, ticket-queue, agent-spawn | pre-design |
+| claude-session | L1 | 0.1.0-design | [../claude-session/docs/interface.md](../claude-session/docs/interface.md) | gatectl, ticket-queue, agent-spawn | designed (2026-10-29) |
 | jobsctl | L1 | 0.0.0 | [../jobsctl/docs/interface.md](../jobsctl/docs/interface.md) | review-watch (optional), review-respond (optional), ticket-work | pre-design |
 | gatectl | L1 | 0.0.0 | [../gatectl/docs/interface.md](../gatectl/docs/interface.md) | review-watch (optional), review-respond (optional) | pre-design |
 | memoctl | L1 | 0.0.0 | [../memoctl/docs/interface.md](../memoctl/docs/interface.md) | claude-session (optional, binding B) | pre-design |

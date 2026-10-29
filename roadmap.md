@@ -1,6 +1,6 @@
 # Roadmap
 
-Derived from `architecture.md` (v1.6), sections 8.6, 18.2 and 19. If this file and the architecture disagree, the architecture wins; update this file.
+Derived from `architecture.md` (v1.8), sections 8.6, 18.2 and 19. If this file and the architecture disagree, the architecture wins; update this file.
 
 ## Build order
 
@@ -48,25 +48,12 @@ Priority: the **review slice** first, the **ticket slice** in parallel. The shar
 
 ## claude-session spike
 
-The first task in the claude-session design session (architecture section 8.6). Empirically confirm:
-
-- [ ] `--plugin-dir` is additive with user-level and project-level standalone skills;
-- [ ] hooks from `--settings` merge with existing user hooks;
-- [ ] behavior of `--resume` with respect to plugin dirs and settings;
-- [ ] whether `--resume` keeps or changes the Claude session id, and whether `--session-id <uuid>` can pre-assign it;
-- [ ] Stop-hook blocking works as described (headless);
-- [ ] headless `-p` JSON output includes the session id, `result` and `total_cost_usd`, and `claude_session_id` can be captured in both modes from the SessionStart payload, including its start source (`startup`, `resume`, `clear`);
-- [ ] prompt delivery: the short bootstrap prompt in argv plus `$CSESSION_DIR/prompt.md` works in both modes, and headless runs accept the prompt on stdin;
-- [ ] `PostToolUse` fires after an answered permission prompt, so it can clear `needs-input(permission)`;
-- [ ] clean shutdown by signaling the exact `claude` child PID after Stop (auto-exit);
-- [ ] credential isolation for third-party-reading kinds (architecture section 13.1): pointing `GH_CONFIG_DIR`/`GLAB_CONFIG_DIR` at an empty temp dir hides git-host logins without affecting Claude's own auth;
-- [ ] `--setting-sources` can exclude user and project settings (and CLAUDE.md) for third-party-reading kinds, so user allow rules cannot widen their profiles; if exclusion is impossible, conservative profiles are expressed as deny rules;
-- [ ] `--strict-mcp-config` with no servers leaves the session without MCP servers;
-- [ ] `--fork-session` with `--resume` creates a new Claude session id, leaves the original conversation unchanged and resumable, and the fork is itself resumable by its new id;
-- [ ] for the respond profile (architecture section 13.1): `git push` and other network access are unreachable, the user's tmux server socket is unreachable, and Claude Code's sandbox (with network denied) works where available.
+Done (2026-10-29, Claude Code 2.1.312). Results are summarized in architecture section 8.6 and recorded in detail in claude-session's `docs/design.md`; claude-session's `live` test suite re-checks them against new Claude Code versions. Behaviors still to verify are listed there.
 
 ## Hook feature candidates
 
 Hook points that tool design sessions identify as useful to others (architecture section 20, "All tools"). This list is maintained as designs proceed; each entry names the tool, the hook, when it fires and who would use it.
 
-_None yet._
+| Tool | Hook | When it fires | Who would use it |
+|---|---|---|---|
+| claude-session | `pre-launch` | Before a session's `claude` process starts (after refusal checks); can veto or escalate | Policies on launching sessions (e.g. a gatectl policy), the harness |
