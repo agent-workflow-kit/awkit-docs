@@ -9,7 +9,7 @@ Each tool, its current version, a link to its interface spec and its known consu
 |---|---|---|---|---|---|
 | forgectl | L1 | 0.0.0 | [../forgectl/docs/interface.md](../forgectl/docs/interface.md) | pr-watch, pr-comment, review-run, review-watch, review-respond, ticket-work | pre-design |
 | ticketctl | L1 | 0.0.0 | [../ticketctl/docs/interface.md](../ticketctl/docs/interface.md) | ticket-queue, ticket-create, ticket-work | pre-design |
-| wtctl | L1 | 0.0.0 | [../wtctl/docs/interface.md](../wtctl/docs/interface.md) | agent-spawn, review-run, ticket-work | pre-design |
+| wtctl | L1 | 0.1.0-design | [../wtctl/docs/interface.md](../wtctl/docs/interface.md) | agent-spawn, review-run, review-respond, ticket-work | designed (2026-10-30) |
 | termctl | L1 | 0.1.0-design | [../termctl/docs/interface.md](../termctl/docs/interface.md) | agent-spawn | designed (2026-10-30) |
 | claude-session | L1 | 0.1.0-design | [../claude-session/docs/interface.md](../claude-session/docs/interface.md) | gatectl, ticket-queue, agent-spawn | designed (2026-10-29) |
 | jobsctl | L1 | 0.0.0 | [../jobsctl/docs/interface.md](../jobsctl/docs/interface.md) | review-watch (optional), review-respond (optional), ticket-work | pre-design |
