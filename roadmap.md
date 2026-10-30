@@ -1,6 +1,6 @@
 # Roadmap
 
-Derived from `architecture.md` (v1.8), sections 8.6, 18.2 and 19. If this file and the architecture disagree, the architecture wins; update this file.
+Derived from `architecture.md` (v1.9), sections 8.6, 18.2 and 19. If this file and the architecture disagree, the architecture wins; update this file.
 
 ## Build order
 
@@ -27,7 +27,7 @@ Priority: the **review slice** first, the **ticket slice** in parallel. The shar
 
 1. **Review slice:** review-watch (cron) picks up a review request, runs review-run headless with the configured skill, drafts, and notifies via Slack/Home Assistant; one-key accept posts the review via pr-comment with a footer; re-review works on re-request.
 2. **Ticket slice:** `ticket-work start` takes the top of ticket-queue (filters, scoring, optional re-rank), transitions the ticket, launches an interactive agent in its own tmux window and worktree; the agent brainstorms, implements, opens a draft PR and reports done; the window closes; `sync` transitions the ticket on merge.
-3. **Review response:** a new comment on your PR resumes a fork of the same session in a new window; it commits fixes locally and drafts replies; you confirm, and they are pushed and posted.
+3. **Review response:** a new comment on your PR resumes a fork of the same session in a new window; it makes the fixes in a disposable checkout and drafts replies; you confirm, and they are committed, pushed and posted.
 4. **Base:** the jobsctl cap is enforced and reorder works; needs-input and done notifications are routed; the awkit dashboard shows the attention list and chains and drills into tool TUIs.
 5. **Every tool works standalone** with README, `schemas/`, tests and safe public defaults.
 
@@ -57,3 +57,4 @@ Hook points that tool design sessions identify as useful to others (architecture
 | Tool | Hook | When it fires | Who would use it |
 |---|---|---|---|
 | claude-session | `pre-launch` | Before a session's `claude` process starts (after refusal checks); can veto or escalate | Policies on launching sessions (e.g. a gatectl policy), the harness |
+| termctl | `pre-open` | Before termctl creates a window (after placement is resolved); can veto or escalate | Policies on window creation (e.g. no new windows during focus time), the harness |
