@@ -12,7 +12,7 @@ Each tool, its current version, a link to its interface spec and its known consu
 | wtctl | L1 | 0.1.0-design | [../wtctl/docs/interface.md](../wtctl/docs/interface.md) | agent-spawn, review-run, review-respond, ticket-work | designed (2026-10-30) |
 | termctl | L1 | 0.1.0-design | [../termctl/docs/interface.md](../termctl/docs/interface.md) | agent-spawn | designed (2026-10-30) |
 | claude-session | L1 | 0.1.0-design | [../claude-session/docs/interface.md](../claude-session/docs/interface.md) | gatectl, ticket-queue, agent-spawn | designed (2026-10-29) |
-| jobsctl | L1 | 0.0.0 | [../jobsctl/docs/interface.md](../jobsctl/docs/interface.md) | review-watch (optional), review-respond (optional), ticket-work | pre-design |
+| jobsctl | L1 | 0.1.0-design | [../jobsctl/docs/interface.md](../jobsctl/docs/interface.md) | review-watch (optional), review-respond (optional), ticket-work | designed (2026-10-31) |
 | gatectl | L1 | 0.0.0 | [../gatectl/docs/interface.md](../gatectl/docs/interface.md) | review-watch (optional), review-respond (optional) | pre-design |
 | memoctl | L1 | 0.0.0 | [../memoctl/docs/interface.md](../memoctl/docs/interface.md) | claude-session (optional, binding B) | pre-design |
 | slack-notice | L1 | 0.0.0 | [../slack-notice/docs/interface.md](../slack-notice/docs/interface.md) | notice-route (as a configured notifier) | pre-design |
