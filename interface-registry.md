@@ -23,7 +23,7 @@ Each tool, its current version, a link to its interface spec and its known consu
 | ticket-queue | L2 | 0.0.0 | [../ticket-queue/docs/interface.md](../ticket-queue/docs/interface.md) | ticket-work | pre-design |
 | ticket-create | L2 | 0.0.0 | [../ticket-create/docs/interface.md](../ticket-create/docs/interface.md) | none | pre-design |
 | notice-route | L2 | 0.0.0 | [../notice-route/docs/interface.md](../notice-route/docs/interface.md) | none (reached through user-wired hooks) | pre-design |
-| agent-spawn | L2 | 0.0.0 | [../agent-spawn/docs/interface.md](../agent-spawn/docs/interface.md) | ticket-create, review-run, review-respond, ticket-work | pre-design |
+| agent-spawn | L2 | 0.1.0-design | [../agent-spawn/docs/interface.md](../agent-spawn/docs/interface.md) | ticket-create, review-run, review-respond, ticket-work | designed (2026-11-02) |
 | review-run | L3 | 0.0.0 | [../review-run/docs/interface.md](../review-run/docs/interface.md) | review-watch | pre-design |
 | review-watch | L3 | 0.0.0 | [../review-watch/docs/interface.md](../review-watch/docs/interface.md) | none | pre-design |
 | review-respond | L3 | 0.0.0 | [../review-respond/docs/interface.md](../review-respond/docs/interface.md) | none | pre-design |

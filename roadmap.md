@@ -1,6 +1,6 @@
 # Roadmap
 
-Derived from `architecture.md` (v1.11), sections 8.6, 18.2 and 19. If this file and the architecture disagree, the architecture wins; update this file.
+Derived from `architecture.md` (v1.12), sections 8.6, 18.2 and 19. If this file and the architecture disagree, the architecture wins; update this file.
 
 ## Build order
 
@@ -60,3 +60,5 @@ Hook points that tool design sessions identify as useful to others (architecture
 | termctl | `pre-open` | Before termctl creates a window (after placement is resolved); can veto or escalate | Policies on window creation (e.g. no new windows during focus time), the harness |
 | wtctl | `pre-remove` | After removal checks and confirmation, right before a worktree or throwaway is deleted; can veto or escalate | Policies on deleting work (e.g. keep worktrees of unmerged tickets), the harness |
 | jobsctl | `pre-add` | Before a job is enqueued; can veto (an escalation would need a held-before-queued state, so it is not in v1) | Policies on enqueueing work, the harness |
+| agent-spawn | `pre-launch` | Before an agent's worktree, session or window is created; can veto or escalate | Policies on starting agents (e.g. a cap on agents per repo), the harness |
+| agent-spawn | `pre-teardown` | Before an agent's worktree is removed or released and its session forgotten; can veto or escalate | Policies on deleting work (e.g. keep agents of unmerged tickets), the harness |
