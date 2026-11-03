@@ -1,6 +1,6 @@
 # Roadmap
 
-Derived from `architecture.md` (v1.13), sections 8.6, 18.2 and 19. If this file and the architecture disagree, the architecture wins; update this file.
+Derived from `architecture.md` (v1.14), sections 8.6, 18.2 and 19. If this file and the architecture disagree, the architecture wins; update this file.
 
 ## Build order
 
@@ -64,3 +64,4 @@ Hook points that tool design sessions identify as useful to others (architecture
 | agent-spawn | `pre-teardown` | Before an agent's worktree is removed or released and its session forgotten; can veto or escalate | Policies on deleting work (e.g. keep agents of unmerged tickets), the harness |
 | forgectl | `pre-merge` | After forgectl's checks and confirmation, before the merge call; can veto or escalate | Policies on merging (e.g. a gatectl policy), the harness |
 | forgectl | `pre-post` | Before a review, comment, reply, approval, `resolve` or `unresolve` reaches the host; can veto or escalate; bodies are not in the payload | Policies on posting and approving, the harness |
+| pr-comment | `pre-post` | After pr-comment's confirmation, before each forgectl write; carries the draft's view (moved findings, neutralized mentions, actor), the `plan_sha256`, the draft's anchor head and upper-bound counts of links, images and raw HTML in the untrusted text, and, on a per-hook opt-in, the final bodies; can veto or escalate | Policies on what is posted (e.g. a secret scanner over review text), the harness |
