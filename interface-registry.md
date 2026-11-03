@@ -7,7 +7,7 @@ Each tool, its current version, a link to its interface spec and its known consu
 
 | Tool | Layer | Version | Interface spec | Known consumers | Status |
 |---|---|---|---|---|---|
-| forgectl | L1 | 0.0.0 | [../forgectl/docs/interface.md](../forgectl/docs/interface.md) | pr-watch, pr-comment, review-run, review-watch, review-respond, ticket-work | pre-design |
+| forgectl | L1 | 0.1.0-design | [../forgectl/docs/interface.md](../forgectl/docs/interface.md) | pr-watch, pr-comment, review-run, review-watch, review-respond, ticket-work | designed (2026-11-02) |
 | ticketctl | L1 | 0.0.0 | [../ticketctl/docs/interface.md](../ticketctl/docs/interface.md) | ticket-queue, ticket-create, ticket-work | pre-design |
 | wtctl | L1 | 0.1.0-design | [../wtctl/docs/interface.md](../wtctl/docs/interface.md) | agent-spawn, review-run, review-respond, ticket-work | designed (2026-10-30) |
 | termctl | L1 | 0.23.2 | [../termctl/docs/interface.md](../termctl/docs/interface.md) | agent-spawn | implemented (2026-11-02), not yet declared stable; blocked on a real-Mac run (#26/#28) |
