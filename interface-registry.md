@@ -18,7 +18,7 @@ Each tool, its current version, a link to its interface spec and its known consu
 | slack-notice | L1 | 0.0.0 | [../slack-notice/docs/interface.md](../slack-notice/docs/interface.md) | notice-route (as a configured notifier) | pre-design |
 | ha-notice | L1 | 0.0.0 | [../ha-notice/docs/interface.md](../ha-notice/docs/interface.md) | notice-route (as a configured notifier) | pre-design |
 | desktop-notice | L1 | 0.0.0 | [../desktop-notice/docs/interface.md](../desktop-notice/docs/interface.md) | notice-route (as a configured notifier) | pre-design |
-| pr-watch | L2 | 0.0.0 | [../pr-watch/docs/interface.md](../pr-watch/docs/interface.md) | review-watch (optional), review-respond, ticket-work | pre-design |
+| pr-watch | L2 | 0.1.0-design | [../pr-watch/docs/interface.md](../pr-watch/docs/interface.md) | review-watch (optional), review-respond, ticket-work | designed (2026-11-10) |
 | pr-comment | L2 | 0.1.0-design | [../pr-comment/docs/interface.md](../pr-comment/docs/interface.md) | review-run (draft new, draft check, review-draft schema), review-watch, review-respond | designed (2026-11-03) |
 | ticket-queue | L2 | 0.0.0 | [../ticket-queue/docs/interface.md](../ticket-queue/docs/interface.md) | ticket-work | pre-design |
 | ticket-create | L2 | 0.0.0 | [../ticket-create/docs/interface.md](../ticket-create/docs/interface.md) | none | pre-design |
