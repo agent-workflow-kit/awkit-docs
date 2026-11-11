@@ -1,6 +1,6 @@
 # Roadmap
 
-Derived from `architecture.md` (v1.17), sections 8.6, 18.2 and 19. If this file and the architecture disagree, the architecture wins; update this file.
+Derived from `architecture.md` (v1.18), sections 8.6, 18.2 and 19. If this file and the architecture disagree, the architecture wins; update this file.
 
 ## Build order
 
@@ -44,7 +44,8 @@ Priority: the **review slice** first, the **ticket slice** in parallel. The shar
 - Tamper-proof audit
 - Secret stores (env only)
 - Placement rulesets beyond a shared session with a window per agent
-- Spend enforcement beyond review-watch's optional, off-by-default daily cap (spend is analytics only)
+- Spend enforcement beyond review-watch's daily round limit, a count of started reviews with default 50 (spend is analytics only)
+- A dollar spend cap for review-watch: planned for a 1.x release after review-run reports `cost_usd` on its run object (0.x has the daily round limit)
 
 ## claude-session spike
 
@@ -67,3 +68,5 @@ Hook points that tool design sessions identify as useful to others (architecture
 | pr-comment | `pre-post` | After pr-comment's confirmation, before each forgectl write; carries the draft's view (moved findings, neutralized mentions, actor), the `plan_sha256`, the draft's anchor head and upper-bound counts of links, images and raw HTML in the untrusted text, and, on a per-hook opt-in, the final bodies; can veto or escalate | Policies on what is posted (e.g. a secret scanner over review text), the harness |
 | review-run | `pre-run` | After review-run resolves the PR and its config, before its run record exists and before any diff is read or a session is launched; can veto or escalate; the payload carries the PR, skill, mode, previous run and the head sha at resolve time, the PR facts (draft, bot author, fork, whether the base is the default branch), whether the repo's configured code run will execute and in which sandbox mode, the session's sandbox level, subagent setting, profile kind and setting sources, the PR's size counts, and whether a human overrode an earlier escalation, never PR text | Policies on starting reviews (e.g. a gatectl policy or a cost cap), the harness |
 | pr-watch | `on-<event>`, `post-poll` | `on-pushed`, `on-comment`, `on-review_comment`, `on-review`, `on-approved`, `on-changes_requested`, `on-ci`, `on-ready`, `on-merged` and `on-closed` fire once per stored event after its PR's transaction committed (best-effort, at-most-once, run in a bounded pool inside the poll, capped per poll and per PR except `merged`, `closed` and `post-poll`, which are exempt; cannot veto; payload is the metadata-only event); `post-poll` fires after a `poll` in which a PR failed, a host call returned an error or a PR became unreachable, with counts, error codes and the newly unreachable PRs | Notifications (notice-route), review-respond, ticket-work and the harness (early triggers), failure alerts |
+| review-watch | `pre-round` | Once per round, at creation, after review-watch's scope, skip and round-limit checks and before capacity and before any run is started; can veto (recorded as a skip, `hook_veto`, re-asked only on a new head or `rerun`) or escalate (the round is created `held`, continued with `resume`); the payload carries the PR, item, round number, head sha, tier and reasons, the trigger and whether a human forced it, never PR or model text | Policies on starting reviews (e.g. a gatectl policy), the harness |
+| review-watch | `post-draft`, `post-attention`, `post-post` | `post-draft` when a round reaches `drafted` (no gate fields; read them with `show`); `post-attention` once per cause with a `reason` (`escalated`, `stale`, `failed`, `round_limit`, `daily_limit`, `poll_failed`, `submit_failed`, `post_failed`) and an `object_type` of `round`, `item` or `host`; `post-post` when a round is posted (best-effort, delivered at least once through an outbox with `event_id`, cannot veto; payloads carry ids, shas, counts and enums, never text) | Notifications (notice-route), the harness (attention list) |
