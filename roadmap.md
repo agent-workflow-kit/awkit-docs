@@ -17,7 +17,7 @@ Priority: the **review slice** first, the **ticket slice** in parallel. The shar
 | Base | claude-session, termctl, wtctl → agent-spawn; jobsctl |
 | Review | forgectl → pr-comment → review-run → review-watch; then gatectl, pr-watch |
 | Tickets | ticketctl → ticket-queue → ticket-work (needs base + forgectl) |
-| Notify | slack-notice, ha-notice, desktop-notice → notice-route |
+| Notify | slack-notice, ha-notice, wsl-notice → notice-route |
 | Response | review-respond (needs base + pr-watch + pr-comment) |
 | Support | memoctl, ticket-create |
 | Harness | awkit |
@@ -54,6 +54,8 @@ Done (2026-10-29, Claude Code 2.1.312). Results are summarized in architecture s
 ## Hook feature candidates
 
 Hook points that tool design sessions identify as useful to others (architecture section 20, "All tools"). This list is maintained as designs proceed; each entry names the tool, the hook, when it fires and who would use it.
+
+The notifier tools (slack-notice, ha-notice, wsl-notice) are stateless and have no hooks in 0.x.
 
 | Tool | Hook | When it fires | Who would use it |
 |---|---|---|---|
