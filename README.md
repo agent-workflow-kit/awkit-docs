@@ -46,7 +46,7 @@ Browse every repository on the [organization page](https://github.com/agent-work
 | memoctl | L1 | Uncommitted shared knowledge for agents. |
 | slack-notice | L1 | Slack notification channel. |
 | ha-notice | L1 | Home Assistant notification channel. |
-| desktop-notice | L1 | Native desktop notification channel. |
+| wsl-notice | L1 | Windows toast notification channel from WSL. |
 | pr-watch | L2 | Watches PRs for changes and emits events. |
 | pr-comment | L2 | Posts reviews, replies and comments to PRs. |
 | ticket-queue | L2 | "Which ticket should I do next?" |
