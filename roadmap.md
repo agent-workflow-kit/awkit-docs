@@ -63,7 +63,7 @@ The notifier tools (slack-notice, ha-notice, wsl-notice) are stateless and have 
 | claude-session | `pre-launch` | Before a session's `claude` process starts (after refusal checks); can veto or escalate | Policies on launching sessions (e.g. a gatectl policy), the harness |
 | termctl | `pre-open` | Before termctl creates a window (after placement is resolved); can veto or escalate | Policies on window creation (e.g. no new windows during focus time), the harness |
 | wtctl | `pre-remove` | After removal checks and confirmation, right before a worktree or throwaway is deleted; can veto or escalate | Policies on deleting work (e.g. keep worktrees of unmerged tickets), the harness |
-| jobsctl | `pre-add` | Before a job is enqueued; can veto (an escalation would need a held-before-queued state, so it is not in v1) | Policies on enqueueing work, the harness |
+| jobsctl | `pre-add` | Before a job is enqueued (shipped in jobsctl 0.35.0); can veto (exit 11) or escalate (exit 13, nothing stored: there is no held state for a job that does not exist, and `add` has no override) | Policies on enqueueing work, the harness |
 | agent-spawn | `pre-launch` | Before an agent's worktree, session or window is created; can veto or escalate | Policies on starting agents (e.g. a cap on agents per repo), the harness |
 | agent-spawn | `pre-teardown` | Before an agent's worktree is removed or released and its session forgotten; can veto or escalate | Policies on deleting work (e.g. keep agents of unmerged tickets), the harness |
 | forgectl | `pre-merge` | After forgectl's checks and confirmation, before the merge call; can veto or escalate | Policies on merging (e.g. a gatectl policy), the harness |
