@@ -254,7 +254,7 @@ Tools whose skill step is internal and headless-only (gatectl agent checks, tick
 
 ## 13. Schemas and versioning
 
-- `schemas/` **must** contain JSON Schema (draft 2020-12) for every `--json` output (`schemas/cli/<command>.json`; nested command names join with `-`, e.g. `schemas/cli/label-add.json`) and hook payload (`schemas/hooks/<hook>.json`), plus `schemas/config.json`, `schemas/audit.json` and `schemas/log.json`. Fields that carry untrusted or agent-generated text (e.g. a report's summary and reason) **must** be marked untrusted in the schema.
+- `schemas/` **must** contain JSON Schema (draft 2020-12) for every `--json` output (`schemas/cli/<command>.json`; nested command names join with `-`, e.g. `schemas/cli/label-add.json`) and hook payload (`schemas/hooks/<hook>.json`), plus `schemas/config.json`, `schemas/audit.json` and `schemas/log.json` (a tool recorded in section 6 as keeping no `audit.jsonl` has no `schemas/audit.json`). Fields that carry untrusted or agent-generated text (e.g. a report's summary and reason) **must** be marked untrusted in the schema.
 - Tests **must** validate real output against these schemas.
 - A dependent tool **may** copy a sibling's schema files into its tests (pinned to a version); it **must not** import them.
 - Each tool **must** use semver, released automatically from Conventional Commit PR titles by python-semantic-release (architecture section 18.3): `feat` → minor; `fix`, `perf`, `chore`, `refactor`, `build` → patch; `docs`, `test`, `ci`, `style` → no release; `!` → major (minor while on 0.x).
