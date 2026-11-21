@@ -386,7 +386,7 @@ Skill-wrapper: analyze Claude Code session transcripts and outcomes; usage analy
 
 #### self-improve (post-v1)
 
-Skill-wrapper: turn audit findings into proposed edits to skills, CLAUDE.md files or config, presented for acceptance. Its `docs/interface.md` is the single normative source for its rules (the headings below link there; nothing is restated).
+Skill-wrapper: turn audit findings into proposed edits to skills, CLAUDE.md files or config, presented for acceptance. Its `docs/interface.md` is the single normative source for its rules (nothing is restated here).
 
 - Commands (indicative): `propose`, `resolve`, `scan`, `list`, `show`, `edit`, `accept`, `reject`, `undo`, `prune`, `validate`, `export`, `cron install|uninstall`. Reads change nothing; `propose`, `scan`, `edit` write only the tool's own store; only `accept` and `undo` write a user file.
 - Uses: session-audit (A; `retro show --json`, and `superseded` read from the `retro list` row of the same id; only `done`, not superseded retros) and claude-session (A; 0.45.2 or later). No agent-spawn, wtctl, termctl, memoctl or notifier, and it never runs `awkit`.
